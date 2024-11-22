@@ -1,0 +1,8 @@
+$color-theme: (
+    white: #ffffff,
+    purple: linear-gradient(90deg,#672280, #a626d3),
+);
+
+@function color-theme($key) {
+    @return map-get($color-theme, $key);
+}

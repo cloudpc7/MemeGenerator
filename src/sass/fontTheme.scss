@@ -1,0 +1,20 @@
+$title-font-size: (
+    xs: 1.25rem,
+    sm: 1.5rem,
+    md: 2rem,
+    lg: 4rem,
+);
+
+@function title-font-size($breakpoint) {
+    @return map-get($title-font-size, $breakpoint);
+}
+
+$font-sizes: (
+    xs: 0.875rem,
+    md: 1rem,
+    lg: 1.125rem,
+);
+
+@function default-font-size($breakpoint) {
+    @return map-get($font-sizes, $breakpoint);
+}
