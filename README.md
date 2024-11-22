@@ -10,3 +10,7 @@ I enjoyed learning about creating forms and form validation in order to make a p
 
 #Updates
 Since this project I have learned to create more with react and I am using bootstrap in order to provide a simple style and update the code in the package.json to deploy it to my github-pages correctly. 
+
+I added functionality to the form to show how to provide form valiadation.
+I added a context provider to show how to use react context provider hook. 
+The code has recently been updated using sass and react-bootstrap. 
