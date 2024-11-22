@@ -1,6 +1,6 @@
 import Header from './components/Header';
 import Meme from './components/Meme';
-import { Container , Row, Col } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 import './sass/styles.scss';
 function App() {
   return (

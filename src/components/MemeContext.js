@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState } from "react";
 import memesData from '../memesData';
 
 const MemeContext = createContext();

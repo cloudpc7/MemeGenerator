@@ -1,8 +1,7 @@
 import {Container, Col, Button, Image, Form, InputGroup } from 'react-bootstrap';
-import { useState, useEffect } from 'react';
-import memesData from '../memesData';
 import { useContext } from 'react';
 import { MemeContext } from './MemeContext';
+
 const  Meme = () => {
     const { meme, getMeme, handleChange, handleBlur, touched, errMsg,enable} = useContext(MemeContext);
     return (

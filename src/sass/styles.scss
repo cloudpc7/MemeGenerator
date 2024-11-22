@@ -85,11 +85,6 @@ body {
                 display: flex;
                 flex-direction: column;
                 gap: 1rem;
-                @media (min-width: 992px) {
-                    .top-text, .bottom-text {
-                    }
-                }
-
             }
 
             .form-label {
