@@ -1,132 +1,143 @@
 @use '../sass/colors.scss' as colors;
 @use '../sass/fontTheme.scss' as font;
 
+$white-color: colors.color-theme(white);
+$purple-color: colors.color-theme(purple); 
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+%flex-column {
+  @include flex-column;
+}
+
+@mixin flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+@mixin flex-center {
+  @include flex-column;
+  align-items: center;
+  justify-content: center;
+}
+
 body {
   margin: 0;
   padding: 0;
   width: 100vw;
-  height: 100Vh;
+  height: 100vh;
 }
 
 .container-fluid {
-    display: flex;
-    flex-direction: column;
+  @include flex-center; 
+
+  h2, h3 {
+    font-size: font.title-font-size(xs);
+    margin: 0;
+  }
+
+  p {
+    font-size: font.default-font-size(xs);
+    margin: 0;
+  }
+
+  .header {
+    @extend %flex-column;
+    background: $purple-color; 
+    width: 100%;
+    gap: 1rem;
+    padding-bottom: 1rem;
     align-items: center;
-    justify-content: center;
 
-    h2,h3 {
-        font-size: font.title-font-size(xs);
-        margin: 0;
+    @media (min-width: 768px) {
+      @include flex-row;
+
+      h3 { 
+        margin-left: auto;
+      }
     }
 
-    p {
-        font-size: font.default-font-size(xs);
-        margin: 0;
+    .troll-image {
+      width: 5rem;
+      height: 5rem;
+      padding: 1rem;
     }
 
-    .header {
-        display: flex;
-        flex-direction: column;
-        background: colors.color-theme(purple);
+    .title-col {
+      @extend %flex-column;
+      text-align: center;
+      color: $white-color;
+      align-items: center;
+      padding: 0;
+      gap: 1rem;
+
+      @media (min-width: 768px) {
+        @include flex-row;
+        padding: 1.25rem;
+      }
+    }
+  }
+
+  .form-container {
+    @extend %flex-column; 
+    margin-top: 1rem;
+    gap: 1rem; 
+    
+    .form {
+      @extend %flex-column;
+      gap: 1rem;
+
+      @media (min-width: 992px) {
         width: 100%;
+      }
+    }
+
+    .form-text {
+      @include flex-row; 
+      gap: 1rem;
+      text-align: center;
+
+      .text-col {
+        @extend %flex-column;
         gap: 1rem;
-        padding-bottom: 1rem;
-        align-items: center;
+        max-width: 15rem;
+      }
 
-        @media (min-width: 768px) {
-          flex-direction: row;
-
-            h3 { 
-                margin-left: auto;
-            }
-        }
-
-        .troll-image {
-            width: 5rem;
-            height: 5rem;
-            padding: 1rem;
-          }
-
-          .title-col {
-            display: flex;
-            flex-direction: column;
-            text-align: center;
-            color: colors.color-theme(white);
-            align-items: center;
-            padding: 0;
-            gap: 1rem;
-    
-            @media (min-width: 768px) {
-                flex-direction: row;
-                padding: 1.25rem;
-            }
-        }
-    
+      .form-label {
+        margin: 0;
+        align-self: center;
+      }
     }
 
-    .form-container {
-        margin-top: 1rem;
-
-        .form {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            
-            @media (min-width: 992px) {
-                width: 100%;
-            }
-        }
-
-        .form-text {
-            display: flex;
-            gap: 1rem;
-            text-align: center;
-            .text-col {
-                display: flex;
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .form-label {
-                margin: 0;
-                align-self: center;
-            }
-        }
-
-        .form-btn {
-            background: colors.color-theme(purple);
-            border: none;
-        }
-
-        .meme {
-            display: flex;
-            flex-direction: column;
-            padding: 0;
-            .meme-image {
-                width: 100%;
-            }
-        }
+    .form-btn {
+      background: $purple-color; 
+      border: none;
+      max-width: 15rem;
+      padding: 1rem 0.875rem;
     }
 
-    .meme {
-        display: flex;
-        align-items: center;
-        position: relative;
-        max-width: 70rem;
-        margin: 0 auto;
-        .meme-image {
-            width: 100%;
-        }
-        .top, .bottom {
-            position: absolute;
-            color: colors.color-theme(white);
-            padding: 2rem 0;
-        }
+  }
 
-        .bottom {
-            top: 70%;
-        }
+  .meme {
+    position: relative;
+    max-width: 70rem;
+    margin: 0 auto;
+    .meme-image {
+      width: 100%;
     }
 
+    .top, .bottom {
+      position: absolute;
+      color: $white-color;
+      padding: 2rem 0;
+    }
+
+    .bottom {
+      top: 70%;
+    }
+  }
 }
-
